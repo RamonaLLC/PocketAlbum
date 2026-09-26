@@ -1,0 +1,9 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/api/health",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    { "name": "FACEBOOK_PAGE_ID", "description": "Meta Page ID for real Facebook publishing (optional)", "requiredAtBoot": false },
+    { "name": "FACEBOOK_PAGE_ACCESS_TOKEN", "description": "Meta Page Access Token with pages_manage_posts and pages_read_engagement (optional)", "requiredAtBoot": false }
+  ]
+}
