@@ -1,0 +1,6 @@
+{
+  "name": "PocketAlbum",
+  "description": "A social coin-collecting application to digitally organize collections into interactive albums, connect with friends, and compete on leaderboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
