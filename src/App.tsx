@@ -287,7 +287,7 @@ export default function App() {
   const isViewingSelf = !viewingUser || viewingUser.id === currentUser.id;
 
   return (
-    <div className="min-h-screen bg-[#0e0c0a] text-[#f7eedd] flex flex-col font-sans selection:bg-[#cba153] selection:text-[#0e0c0a] w-full overflow-x-hidden">
+    <div className="min-h-dvh bg-[#0e0c0a] text-[#f7eedd] flex flex-col font-sans selection:bg-[#cba153] selection:text-[#0e0c0a] w-full overflow-x-hidden">
       {/* Top Main Application Navbar */}
       <header className="sticky top-0 z-40 bg-[#0e0c0a]/95 backdrop-blur-md border-b border-[#7a5c28]/40 w-full safe-area-top shadow-lg shadow-black/60">
         <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-3 sm:px-6">
@@ -364,7 +364,7 @@ export default function App() {
                 setViewingUser(null);
                 setScreenHistory([]);
               }}
-              className={`w-full py-2 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
+              className={`w-full py-2.5 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
                 activeTab === 'collection' && isViewingSelf
                   ? 'bg-gradient-to-r from-[#dfb86c] to-[#b88c3a] text-[#140e08] shadow-md shadow-[#dfb86c]/20 font-black border border-[#fae19c]'
                   : 'text-[#a89c8d] hover:text-[#f7eedd] hover:bg-[#231a14] bg-[#16110d]/80 border border-[#5a4420]/40'
@@ -382,7 +382,7 @@ export default function App() {
                 setViewingUser(null);
                 setScreenHistory([]);
               }}
-              className={`w-full py-2 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
+              className={`w-full py-2.5 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
                 activeTab === 'leaderboards'
                   ? 'bg-gradient-to-r from-[#dfb86c] to-[#b88c3a] text-[#140e08] shadow-md shadow-[#dfb86c]/20 font-black border border-[#fae19c]'
                   : 'text-[#a89c8d] hover:text-[#f7eedd] hover:bg-[#231a14] bg-[#16110d]/80 border border-[#5a4420]/40'
@@ -401,7 +401,7 @@ export default function App() {
                 setViewingUser(null);
                 setScreenHistory([]);
               }}
-              className={`w-full py-2 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
+              className={`w-full py-2.5 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
                 activeTab === 'chat'
                   ? 'bg-gradient-to-r from-[#dfb86c] to-[#b88c3a] text-[#140e08] shadow-md shadow-[#dfb86c]/20 font-black border border-[#fae19c]'
                   : 'text-[#a89c8d] hover:text-[#f7eedd] hover:bg-[#231a14] bg-[#16110d]/80 border border-[#5a4420]/40'
@@ -417,7 +417,7 @@ export default function App() {
                 setViewingUser(null);
                 setScreenHistory([]);
               }}
-              className={`w-full py-2 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
+              className={`w-full py-2.5 px-1 sm:px-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 min-w-0 cursor-pointer ${
                 activeTab === 'news'
                   ? 'bg-gradient-to-r from-[#dfb86c] to-[#b88c3a] text-[#140e08] shadow-md shadow-[#dfb86c]/20 font-black border border-[#fae19c]'
                   : 'text-[#a89c8d] hover:text-[#f7eedd] hover:bg-[#231a14] bg-[#16110d]/80 border border-[#5a4420]/40'
@@ -432,7 +432,9 @@ export default function App() {
       </header>
 
       {/* Main Content Area: Centered, responsive container */}
-      <main className="flex-1 w-full max-w-4xl lg:max-w-5xl mx-auto px-3 sm:px-6 py-5 sm:py-7 space-y-6 min-w-0">
+      <main className={`flex-1 w-full max-w-4xl lg:max-w-5xl mx-auto px-3 sm:px-6 pt-5 sm:pt-7 space-y-6 min-w-0 ${
+        activeTab === 'collection' && isViewingSelf ? 'pb-28 sm:pb-12' : 'pb-6 sm:pb-8'
+      }`}>
         {/* Banner when viewing someone else's public collection */}
         {!isViewingSelf && (
           <div className="bg-gradient-to-r from-[#241a13] via-[#1c140f] to-[#241a13] border border-[#7a5c28]/60 rounded-2xl p-3.5 sm:p-4 flex flex-col md:flex-row md:items-center justify-between gap-3.5 sm:gap-4 shadow-xl shadow-black/70 w-full max-w-full overflow-hidden">
@@ -871,7 +873,7 @@ export default function App() {
 
       {/* Floating Action Button (FAB) on 'My Collection' tab to quickly add a new coin entry without navigating through menus */}
       {activeTab === 'collection' && isViewingSelf && (
-        <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40">
+        <div className="fixed right-5 sm:right-8 z-40 fab-safe">
           <button
             id="quick-add-coin-fab"
             onClick={() => setIsQuickAddOpen(true)}
